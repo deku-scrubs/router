@@ -39,6 +39,19 @@ function render ({props}) {
 }
 ```
 
+## Nesting
+
+You may also nest router components.  If you want to create a nestable route, you can terminate it with '/*'.  If you do that, then in addition to `params`, your page components will receive a `url` prop, which contains the remaining portion of the url.
+
+```javascript
+const App = router({
+  '/user/:user/*': router({
+    '/profile': Profile,
+    '/feed': Feed
+  })
+})
+```
+
 ## Installation
 
     $ npm install @deku-scrubs/router
