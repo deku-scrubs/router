@@ -52,6 +52,8 @@ const App = router({
 })
 ```
 
+Though you don't have to nest them immediately next to each other in the tree like this.  They can be arbitrarily separated - you just need to propagate down the remaining url portion.
+
 ## Installation
 
     $ npm install @deku-scrubs/router
