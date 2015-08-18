@@ -32,7 +32,7 @@ const propTypes = {
   }
 }
 
-function render () {
+function render ({props}) {
   return (
     <App url={props.url} />
   )
