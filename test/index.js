@@ -13,12 +13,12 @@ import router from '..'
 
 test('should work', ({equal, fail, plan}) => {
   const App = router({
-    '/user/:user': {
+    '/user/:user': () => ({
       render ({props}) { equal(props.params.user, 'test') }
-    },
-    '/otherThing': {
+    }),
+    '/otherThing': () => ({
       render () { fail() }
-    }
+    })
   })
 
   plan(1)
@@ -27,12 +27,12 @@ test('should work', ({equal, fail, plan}) => {
 
 test('should pass the rest of the url to a subroute', ({equal, plan}) => {
   const App = router({
-    '/user/:user': {
+    '/user/:user': () => ({
       render({props}) {
         equal(props.params.user, 'test')
         equal(props.url, '/subroute/subroute2')
       }
-    }
+    })
   })
 
   plan(2)
@@ -41,18 +41,18 @@ test('should pass the rest of the url to a subroute', ({equal, plan}) => {
 
 test('should nest routes', ({pass, fail, plan}) => {
   const App = router({
-    '/user/:user': router({
-      '/profile': {
+    '/user/:user': () => (router({
+      '/profile': () => ({
         render () {
           pass()
         }
-      },
-      '/feed': {
+      }),
+      '/feed': () => ({
         render () {
           fail()
         }
-      }
-    })
+      })
+    }))
   })
 
   plan(1)
