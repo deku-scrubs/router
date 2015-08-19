@@ -25,9 +25,9 @@ test('should work', ({equal, fail, plan}) => {
   create(<App url='/user/test' />)
 })
 
-test('should pass the rest of the url to a wildcard route', ({equal, plan}) => {
+test('should pass the rest of the url to a subroute', ({equal, plan}) => {
   const App = router({
-    '/user/:user/*': {
+    '/user/:user': {
       render({props}) {
         equal(props.params.user, 'test')
         equal(props.url, '/subroute/subroute2')
@@ -41,7 +41,7 @@ test('should pass the rest of the url to a wildcard route', ({equal, plan}) => {
 
 test('should nest routes', ({pass, fail, plan}) => {
   const App = router({
-    '/user/:user/*': router({
+    '/user/:user': router({
       '/profile': {
         render () {
           pass()
