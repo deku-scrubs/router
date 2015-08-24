@@ -15,13 +15,11 @@
     ]
   },
   "dependencies": {
-    "tape-catch": "^1.0.4",
-    "virtual-element": "*"
+    "tape-catch": "^1.0.4"
   },
   "devDependencies": {
     "@deku-scrubs/standard": "*",
     "babel": "^5.8.21",
-    "deku": "^0.5.0",
     "tape": "^4.0.3"
   },
   "engines": {
